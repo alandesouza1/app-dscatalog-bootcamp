@@ -1,7 +1,9 @@
 import { ReactComponent as MainImage } from 'assets/images/main-image.svg';
 import ButtonIcon from 'components/ButtonIcon';
 import { Link } from 'react-router-dom';
+
 import './styles.css';
+
 const Home = () => {
   return (
     <div className="home-container">
@@ -14,9 +16,11 @@ const Home = () => {
               mercado.
             </p>
           </div>
-          <Link to="/products">
-            <ButtonIcon />
-          </Link>
+          <div>
+            <Link to="/products">
+              <ButtonIcon text="Inicie agora a sua busca"/>
+            </Link>
+          </div>
         </div>
         <div className="home-image-container">
           <MainImage />
