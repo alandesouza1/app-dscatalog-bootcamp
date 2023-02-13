@@ -40,15 +40,15 @@ const Login = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-4">
           <input
-            {...register("username", {
-              required: "Campo Obrigatório",
+            {...register('username', {
+              required: 'Campo Obrigatório',
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: "Email inválido",
+                message: 'Email inválido'
               }
             })}
-            type="username"
-            className="form-control base-input"
+            type="text"
+            className={`form-control base-input ${errors.username? 'is-invalid' : ''}`}
             placeholder="Email"
             name="username"
           />
@@ -62,7 +62,7 @@ const Login = () => {
               required: "Campo Obrigatório",
             })}
             type="password"
-            className="form-control base-input "
+            className={`form-control base-input ${errors.password? 'is-invalid' : ''}`}
             placeholder="Password"
             name="password"
           />
