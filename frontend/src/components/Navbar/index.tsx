@@ -12,8 +12,8 @@ import { useState } from "react";
 import history from "util/history";
 
 type AuthData = {
-  authenticated: boolean;
-  tokenData?: TokenData;
+  authenticated: boolean,
+  tokenData?: TokenData
 };
 
 const Navbar = () => {
@@ -25,9 +25,10 @@ const Navbar = () => {
         authenticated: true,
         tokenData: getTokenData(),
       });
-    } else {
+    } 
+    else {
       setAuthData({
-        authenticated: false,
+        authenticated: false
       });
     }
   }, []);
@@ -38,7 +39,7 @@ const Navbar = () => {
     setAuthData({
       authenticated: false,
     });
-    history.replace("/");
+    history.replace('/');
   };
 
   return (
@@ -78,10 +79,12 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div>
+        <div className="nav-login-logout">
           {authData.authenticated ? (
             <>
-              <span>{authData.tokenData?.user_name}</span>
+              <span className="nav-username">
+                {authData.tokenData?.user_name}
+              </span>
               <a href="#logout" onClick={handleLogoutClick}>
                 LOGOUT
               </a>

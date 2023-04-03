@@ -1,14 +1,12 @@
 .main-nav {
   padding-left: 40px;
   min-height: 70px;
-  
 }
 
 .nav-logo-text {
   color: #fff;
   font-weight: bold;
   text-decoration: none;
- 
 }
 
 .nav-logo-text:hover {
@@ -21,14 +19,12 @@
   width: 380px;
   justify-content: space-between;
   text-decoration: none;
-  
 }
 
 .main-menu a {
   font-style: normal;
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
- 
 }
 
 .main-menu a.active {
@@ -40,3 +36,27 @@
   color: #fff;
 }
 
+.nav-login-logout {
+  
+  display: none;
+}
+
+
+@media (min-width: 768px) {
+  .nav-login-logout {
+    display: unset;
+    color: #fff;
+    margin-right: 15px;
+  }
+}
+
+@media (min-width: 992px) {
+  .nav-login-logout {
+    margin-right: 40px;
+  }
+
+  .nav-username {
+    display: unset;
+    margin-right: 20px;
+  }
+}
