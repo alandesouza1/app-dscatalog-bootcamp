@@ -1,21 +1,14 @@
 import "./styles.css";
 import "bootstrap/js/src/collapse.js";
 import { Link, NavLink } from "react-router-dom";
-import {
-  getTokenData,
-  isAuthenticated,
-  removeAuthData,
-} from "util/requests";
 import { useContext, useEffect } from "react";
 import history from "util/history";
 import { AuthContext } from "AuthContext";
-
-
+import { getTokenData, isAuthenticated } from "util/auth";
+import { removeAuthData } from "util/storage";
 
 const Navbar = () => {
-
-   const { authContextData, setAuthContextData } = useContext(AuthContext);
-
+  const { authContextData, setAuthContextData } = useContext(AuthContext);
 
   useEffect(() => {
     if (isAuthenticated()) {
@@ -23,10 +16,9 @@ const Navbar = () => {
         authenticated: true,
         tokenData: getTokenData(),
       });
-    } 
-    else {
+    } else {
       setAuthContextData({
-        authenticated: false
+        authenticated: false,
       });
     }
   }, [setAuthContextData]);
@@ -37,7 +29,7 @@ const Navbar = () => {
     setAuthContextData({
       authenticated: false,
     });
-    history.replace('/');
+    history.replace("/");
   };
 
   return (
