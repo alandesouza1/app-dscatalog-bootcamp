@@ -1,7 +1,7 @@
 import ProductPrice from "components/ProductPrice";
 import { Product } from "types/product";
-import "./styles.css";
 import CategoryBadge from "../CategoryBadge";
+import "./styles.css";
 
 type Props = {
   product: Product;
@@ -14,7 +14,7 @@ const ProductCrudCard = ({ product }: Props) => {
         <img src={product.imgUrl} alt={product.name} />
       </div>
       <div>
-        <div className="product-crud-card-bottom-container">
+        <div className="product-crud-card-buttom-container">
           <h6>{product.name}</h6>
           <ProductPrice price={product.price} />
         </div>
@@ -23,6 +23,15 @@ const ProductCrudCard = ({ product }: Props) => {
             <CategoryBadge name={category.name} key={category.id} />
           ))}
         </div>
+      </div>
+      <div className="product-crud-card-buttons-container">
+        <button className=" bnt btn-outline-danger product-crud-card-button product-crud-card-button-first">
+            EXCLUIR
+        </button>
+        <button className=" bnt btn-outline-secondary product-crud-card-button">
+            EDITAR
+        </button>
+
       </div>
     </div>
   );
