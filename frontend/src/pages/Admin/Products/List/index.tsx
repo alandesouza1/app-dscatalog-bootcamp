@@ -8,6 +8,7 @@ import { requestBackend } from "util/requests";
 import "./styles.css";
 
 const List = () => {
+  
   const [page, setPage] = useState<SpringPage<Product>>();
 
   useEffect(() => {
@@ -16,7 +17,7 @@ const List = () => {
       url: "/products",
       params: {
         page: 0,
-        size: 12,
+        size: 50,
       },
     };
 
