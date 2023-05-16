@@ -15,13 +15,17 @@ const Catalog = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    getProducts(0);
+  }, []);
+
+  const getProducts = (pageNumber: number) => {
     const params: AxiosRequestConfig = {
       method: "GET",
       url: "/products",
       baseURL: BASE_URL,
       params: {
-        page: 0,
-        size:  12,
+        page: pageNumber,
+        size: 12,
       },
     };
 
@@ -33,7 +37,7 @@ const Catalog = () => {
       .finally(() => {
         setIsLoading(false);
       });
-  }, []);
+  };
 
   return (
     <div className="container my-4 catalog-container">
@@ -42,18 +46,25 @@ const Catalog = () => {
       </div>
 
       <div className="row">
-        {isLoading ? <CardLoader />: ( 
+        {isLoading ? (
+          <CardLoader />
+        ) : (
           page?.content.map((product) => (
-          <div className="col-sm-6 col-lg-4 col-xl-3" key={product.id}>
-            <Link to="products/1">
-              <ProductCard product={product} />
-            </Link>
-          </div>
-        )))}
+            <div className="col-sm-6 col-lg-4 col-xl-3" key={product.id}>
+              <Link to="products/1">
+                <ProductCard product={product} />
+              </Link>
+            </div>
+          ))
+        )}
       </div>
 
       <div className="row">
-        <Pagination />
+        <Pagination
+          pageCount={page ? page.totalPages : 0}
+          range={3}
+          onChange={getProducts}
+        />
       </div>
     </div>
   );

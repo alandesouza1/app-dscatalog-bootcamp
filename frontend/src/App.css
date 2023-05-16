@@ -18,7 +18,15 @@ a,
 a:hover {
   text-decoration: none;
   color: unset;
+  
 }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 
 .base-card {
   background-color: #fff;
