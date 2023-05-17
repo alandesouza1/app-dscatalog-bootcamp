@@ -2,10 +2,9 @@ import { ReactComponent as SearchIcon } from "assets/images/searchIcon.svg";
 import { Category } from "types/category";
 import { Controller, useForm } from "react-hook-form";
 import Select from "react-select";
-
-import "./styles.css";
 import { useEffect, useState } from "react";
 import { requestBackend } from "util/requests";
+import "./styles.css";
 
 type ProductFilterData = {
   name: string;
@@ -38,7 +37,7 @@ const ProductFilter = () => {
             placeholder="Nome do produto"
             name="name"
           />
-          <button>
+          <button className="product-filter-search">
             <SearchIcon />
           </button>
         </div>
@@ -52,14 +51,17 @@ const ProductFilter = () => {
                   {...field}
                   options={selectCategories}
                   isClearable
-                  classNamePrefix="product_crud_select__control"
+                  placeholder="Categoria"
+                  classNamePrefix="product_filter_select__control"
                   getOptionLabel={(category: Category) => category.name}
                   getOptionValue={(category: Category) => String(category.id)}
                 />
               )}
             />
           </div>
-          <button className="btn btn-outline-secondary">LIMPAR</button>
+          <button className="btn btn-outline-secondary btn-product-filter-clear">
+            LIMPAR<span className="btn-product-filter-word"> FILTRO</span>
+          </button>
         </div>
       </form>
     </div>
