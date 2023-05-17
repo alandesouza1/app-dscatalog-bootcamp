@@ -41,7 +41,7 @@ const ProductFilter = () => {
             <SearchIcon />
           </button>
         </div>
-        <div className="product-filter-bottom-container">
+        <div className="product-filter-bottom-container ">
           <div className="product-filter-category-container">
             <Controller
               name="category"
